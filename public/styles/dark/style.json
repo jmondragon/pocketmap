@@ -5,10 +5,29 @@
       "type": "vector",
       "attribution": "<a href=\"https://github.com/protomaps/basemaps\">Protomaps</a> © <a href=\"https://openstreetmap.org\">OpenStreetMap</a>",
       "url": "pmtiles://tiles/v4.pmtiles"
+    },
+    "terrainSource": {                                                                 
+      "type": "raster-dem",                                                      
+      "url": "pmtiles://tiles/planet.pmtiles",                                   
+      "encoding": "terrarium",                                                   
+      "tileSize": 256,                                                           
+      "maxzoom": 12                                                              
+    },
+    "hillshadeSource": {                                                                 
+      "type": "raster-dem",                                                      
+      "url": "pmtiles://tiles/planet.pmtiles",                                   
+      "encoding": "terrarium",                                                   
+      "tileSize": 256,                                                           
+      "maxzoom": 12                                                              
     }
   },
   "sprite": "https://protomaps.github.io/basemaps-assets/sprites/v4/dark",
   "glyphs": "https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf",
+  "terrain": {
+      "source": "terrainSource",
+      "exaggeration": 1
+  },
+  "sky": {},
   "layers": [
     {
       "id": "background",
@@ -26,6 +45,13 @@
       "paint": {
         "fill-color": "#1f1f1f"
       }
+    },
+    {
+        "id": "hills",
+        "type": "hillshade",
+        "source": "hillshadeSource",
+        "layout": { "visibility": "visible"},
+        "paint": { "hillshade-shadow-color": "#473B24" }
     },
     {
       "id": "landcover",
