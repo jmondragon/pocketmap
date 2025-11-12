@@ -34,7 +34,7 @@ jobs:
       # but its here to ensure that each release embeds the latest admin ui artifacts.
       # If the artificats differs, a "dirty error" is thrown - https://goreleaser.com/errors/dirty/
       - name: Build frontend UI
-        run: npm --prefix=./frontend i && npm --prefix=./frontend run build
+        run: npm --prefix=../frontend ci && npm --prefix=../frontend run build
 
       # Temporary disable as the types can have random generated identifiers making it non-deterministic.
       #
