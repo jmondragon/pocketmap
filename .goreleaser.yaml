@@ -10,10 +10,10 @@ before:
 
 builds:
   - id: build_noncgo
-    main: ./examples/base
-    binary: pocketbase
+    main: ./
+    binary: pocketmap
     ldflags:
-      - -s -w -X github.com/pocketbase/pocketbase.Version={{ .Version }}
+      - -s -w -X github.com/jmondragon/pocketmap.Version={{ .Version }}
     env:
       - CGO_ENABLED=0
     goos:
