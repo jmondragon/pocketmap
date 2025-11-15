@@ -1,7 +1,9 @@
 package migrations
 
 import (
+	"context"
 	"strings"
+	"time"
 
 	"github.com/pocketbase/pocketbase/core"
 	m "github.com/pocketbase/pocketbase/migrations"
@@ -20,13 +22,17 @@ func init() {
 				record := core.NewRecord(collection)
 				record.Set("name", styleName)
 				record.Set("styleUrl", "https://tiles.openfreemap.org/styles/" + strings.ToLower(styleName))
+								
+				ctx, cancel:= context.WithTimeout(context.Background(), time.Second*30)
+				defer cancel()
 				
-				f, err := filesystem.NewFileFromPath("./frontend/public/images/" + strings.ToLower(styleName) + ".png")
-				record.Set("image", f)
-
+				// Download image from Github and save it to the record				
+				image, err := filesystem.NewFileFromURL(ctx, "https://s3.pocketmap.io/images/" + strings.ToLower(styleName) + ".png")
 				if err != nil {
 					return err
 				}
+				record.Set("image", image)
+
 
 				if err := app.Save(record); err != nil {
 					return err
