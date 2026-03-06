@@ -12,5 +12,7 @@
 # Ignore the pocketmap binary and related files
 pocketmap
 pb_data
+tiles
 *.pmtiles
+.builds
 
