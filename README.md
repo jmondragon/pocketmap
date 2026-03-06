@@ -18,6 +18,33 @@ A special thank you goes out to all of the folks from these projects that put in
 
 ## Getting Started
 
+### Docker (Recommended)
+
+The easiest way to run PocketMap is via Docker:
+
+```bash
+docker run -p 8090:8090 -v ./tiles:/app/tiles --name pocketmap ghcr.io/pocketmap/pocketmap:main
+```
+
+Or using Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+To use offline maps, download the map tiles and place them in the `tiles` folder:
+
+```bash
+# Create tiles directory
+mkdir -p tiles
+
+# Download map tiles (~122 GB)
+# Get the latest from https://maps.protomaps.com/builds/
+wget -O tiles/v4.pmtiles https://demo-bucket.protomaps.com/v4.pmtiles
+```
+
+### Standalone Binary
+
 Download the appropriate executable for your operating system from the releases. Extract the file and enable the executable run (e.g. `chmod +x pocketmap` on Linux)
 
 _NOTE for Mac_, you have to remove the quarantine bit since this file was downloaded from the internet: `xattr -r quarantine pocketmap`
