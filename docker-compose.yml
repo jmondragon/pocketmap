@@ -1,8 +1,10 @@
 services:
   pocketmap:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/pocketmap/pocketmap:main
+    # To build locally instead, uncomment the following:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     ports:
       - "8090:8090"
     volumes:
