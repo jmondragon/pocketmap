@@ -1,0 +1,36 @@
+# Git
+.git
+.gitignore
+
+# Frontend dev
+frontend/node_modules
+frontend/dist
+
+# Go dev
+*.test
+*.out
+*.db
+pb_data
+tiles
+
+# Build outputs
+.builds
+dist
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE.md
+
+# CI/CD
+.github

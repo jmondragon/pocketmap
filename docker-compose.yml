@@ -1,0 +1,11 @@
+services:
+  pocketmap:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./tiles:/app/tiles
+      - ./pb_data:/app/pb_data
+    restart: unless-stopped
